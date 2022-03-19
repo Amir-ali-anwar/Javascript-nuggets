@@ -22,3 +22,10 @@ const employees = {
         },
     }
 };
+// console.log(employees);
+
+const { engineers:{0:{name,occupation}}} = employees
+console.log(name,'',occupation)
+
+
+
