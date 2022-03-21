@@ -3,7 +3,7 @@ const employees = {
         0: {
             id: 1,
             name: "Amir Ali",
-            occupation: "Fullstack Engineer"
+            // occupation: "Fullstack Engineer"
         },
         1: {
             id: 2,
@@ -22,3 +22,24 @@ const employees = {
         },
     }
 };
+// console.log(employees);
+
+// const { engineers:{0:{name,occupation}}} = employees
+// console.log(name,'',occupation)
+// Destructuring with Error handling 
+const { engineers:{0:{name='',occupation=''}=''}=''} = employees
+console.log(name,'',occupation)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
