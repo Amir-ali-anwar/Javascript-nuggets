@@ -47,3 +47,6 @@ function onRejected(error) {
 
 const promise = getUsers();
 promise.then(onFulfilled, onRejected);
+
+
+// 
