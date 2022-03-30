@@ -5,7 +5,12 @@
 //return empty array when not condition meets
 
 const foodItems= ['milk','water','sugar','jam'];
-const Istrue= foodItems.filter((item)=>{
+let Istrue= foodItems.filter((item)=>{
     return item==='meat'
 })
 console.log(Istrue)
+
+ const isAvailable= foodItems.filter((item)=>{
+    return item==='milk'
+})
+console.log(isAvailable)
