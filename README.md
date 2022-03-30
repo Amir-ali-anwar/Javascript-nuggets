@@ -1,1 +1,1 @@
-# javascript-nuggets
+# In this series of nuggets we are looking on various javascript concepts that come in handy when woking on various javascript frameworks
