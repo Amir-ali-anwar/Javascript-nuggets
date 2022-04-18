@@ -20,7 +20,7 @@ const Loadimage = (url) => {
             resolve(img)
         })
         img.addEventListener('error', () => {
-            reject(`there was error in you ${url}`)
+            reject(new Error(`Opps there is error in your ${url}`))
         })
         img.src = url;
     })
