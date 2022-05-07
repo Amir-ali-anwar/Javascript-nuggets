@@ -1,15 +1,14 @@
 const button = document.querySelector('.btn');
 const imgContainer = document.querySelector('.image-container');
 const loadingText = document.querySelector('.loading-text')
-console.log(imgContainer)
+// console.log(imgContainer)
 
 const url = 'https://source.unsplash.com/random';
 
 button.addEventListener('click', async () => {
 
     try {
-
-        const resp = await Loadimage(url);
+     const resp = await Loadimage(url);
         imgContainer.appendChild(resp)
     } catch (error) {
         console.log(error)
