@@ -5,7 +5,6 @@ const paginate = (followers) => {
        const start= index*itemsPerPage
        return followers.slice(start,start+itemsPerPage)
     })
-    console.log(finalPages)
     return finalPages
 };
 
