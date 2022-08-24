@@ -6,7 +6,17 @@ let nextContainer = document.querySelector(".next-btn");
 let slideItems= [...data]
 slideContainer.innerHTML=slideItems?.map((person,index)=>{
     const {img,job,name,text}=person
-    return ` <article class="slide" data-id=${index}>
+    let position='next'
+    if(index===0){
+      position='active'
+    }
+    if (index === slideItems.length - 1) {
+      position = "last";
+    }
+     if (slideItems.length <= 1) {
+       position = "active";
+     }
+    return ` <article class="slide ${position}" data-id=${index}>
         <img src=${img}
           class="img" alt=${name} />
         <h4>${name}</h4>
@@ -20,3 +30,13 @@ slideContainer.innerHTML=slideItems?.map((person,index)=>{
       </article>`;
 }).join('')
 
+const startSlider=(type)=>{
+  
+}
+
+prevContainer.addEventListener('click',()=>{
+  startSlider()
+});
+nextContainer.addEventListener("click", () => {
+  startSlider();
+});
