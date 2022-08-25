@@ -31,7 +31,16 @@ slideContainer.innerHTML=slideItems?.map((person,index)=>{
 }).join('')
 
 const startSlider=(type)=>{
-  
+  let active = document.querySelector(".active");
+  let last = document.querySelector(".last");
+  let next= active.nextElementSibling
+  active.classList.remove(['active'])
+  last.classList.remove(["last"]);
+  next.classList.remove(["next"]);
+ 
+  active.classList.add('last');
+  last.classList.add('next');
+  next.classList.add('active');
 }
 
 prevContainer.addEventListener('click',()=>{
