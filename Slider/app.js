@@ -43,10 +43,12 @@ const startSlider = (type) => {
   if (type === "prev") {
     active.classList.add("next");
     last.classList.add("active");
-    next = slideContainer.previousElementSibling;
+    next = last.previousElementSibling;
     if (!next) {
       next = slideContainer.lastElementChild;
     }
+    next.classList.remove(['next'])
+    next.classList.add('last')
     return;
   }
   active.classList.add("last");
