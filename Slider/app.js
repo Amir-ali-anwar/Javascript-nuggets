@@ -30,22 +30,33 @@ slideContainer.innerHTML=slideItems?.map((person,index)=>{
       </article>`;
 }).join('')
 
-const startSlider=(type)=>{
+const startSlider = (type) => {
   let active = document.querySelector(".active");
   let last = document.querySelector(".last");
-  let next= active.nextElementSibling
-  active.classList.remove(['active'])
+  let next = active.nextElementSibling;
+  if (!next) {
+    next = slideContainer.firstElementChild;
+  }
+  active.classList.remove(["active"]);
   last.classList.remove(["last"]);
   next.classList.remove(["next"]);
- 
-  active.classList.add('last');
-  last.classList.add('next');
-  next.classList.add('active');
-}
+  if (type === "prev") {
+    active.classList.add("next");
+    last.classList.add("active");
+    next = slideContainer.previousElementSibling;
+    if (!next) {
+      next = slideContainer.lastElementChild;
+    }
+    return;
+  }
+  active.classList.add("last");
+  last.classList.add("next");
+  next.classList.add("active");
+};
 
 prevContainer.addEventListener('click',()=>{
-  startSlider()
+  startSlider("prev");
 });
 nextContainer.addEventListener("click", () => {
-  startSlider();
+  startSlider()
 });
