@@ -5,7 +5,7 @@ const myfriends = [
     { name: 'Mubahsar', age: 26, position: 'developer', salary: 100 },
     { name: 'Babar', age: 25, position: 'SQA', salary: 6000 },
     { name: 'Haroon', age: 24, position: 'SQA', salary: 400 },
-    { name: 'Amir', age: 25, position: 'Full stack', salary: 50 },
+    { name: 'Amir Ali Anwar', age: 25, position: 'Full stack', salary: 50 },
 ];
 const dailyTotal = myfriends.reduce((total, person) => {
 
