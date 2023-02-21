@@ -1,3 +1,5 @@
+//target =>refers to the element where clicked
+// currentTarget => referes to the  element where the listner is added
 const form = document.querySelector('.form');
 form.addEventListener('submit',(e)=>{
     e.preventDefault();
