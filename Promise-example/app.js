@@ -9,6 +9,9 @@ button.addEventListener('click', async () => {
 
     try {
      const resp = await Loadimage(url);
+     if(!resp){
+         throw new Error('No Image available')
+     }
         imgContainer.appendChild(resp)
     } catch (error) {
         console.log(error)
