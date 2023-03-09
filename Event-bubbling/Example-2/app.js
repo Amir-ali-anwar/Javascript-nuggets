@@ -2,7 +2,7 @@
 // Event Bubbling is a concept in the DOM (Document Object Model). 
 //it happens when an element receives an event, and that event bubbles up (or you can say is transmitted or propagated) 
 //to its parent and ancestor elements in the DOM tree until it gets to the root element.
-
+// Event bubbing can be stopped by stopPropagation() that JavaScript provides
 const body = document.getElementsByTagName("body")[0]
 const div = document.getElementsByTagName("div")[0]
 const span = document.getElementsByTagName("span")[0]
