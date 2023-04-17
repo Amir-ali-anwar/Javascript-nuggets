@@ -22,7 +22,7 @@ xhr.onreadystatechange = function () {
         const result = Users?.map((User) => {
             const { name, description } = User
             return `
-            <li>
+            <li class="data data-${User.id}">
             <strong>${name}</strong-${description} 
             </li>
           `
