@@ -15,3 +15,14 @@ const dailyTotal = myfriends.reduce((total, person) => {
     return total
 }, 0);
 console.log(dailyTotal)
+
+
+// Example--2
+
+const countSalary = myfriends.reduce((acc, person) => {
+    const key = person.name;
+    const isExist = acc[key] || [];
+    return { ...acc, [key]: isExist + 1 }
+}, {})
+
+console.log(countSalary);
