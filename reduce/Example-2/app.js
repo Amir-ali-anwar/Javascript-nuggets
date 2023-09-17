@@ -17,8 +17,19 @@ const organizedArray = a1.reduce(
 );
 const string= organizedArray.strings
 const numbers = organizedArray.numbers.map((str)=>parseFloat(str));
-const specialCharacters = organizedArray.specialCharacters
+// const specialCharacters = organizedArray.specialCharacters?.map((character)=>character.replace(/'/g, ''))
 
 console.log({string});
 console.log({numbers});
-console.log({specialCharacters});
+// console.log({specialCharacters});
+
+
+
+function abc(a,b,c,...rest){
+  console.log(a,b,c,+rest);
+ return a+b+c+(+rest)
+}
+
+let array=[1,2,4,5]
+
+console.log(abc(...array));
