@@ -1,7 +1,13 @@
+
 const button = document.querySelector(".fetch-data");
 const stories = document.querySelector(".stories");
 const nodata = document.querySelector(".loading");
 const noData= document.querySelector('.no-data')
+// import axios from 'axios'
+const response=  await axios.get('https://jsonplaceholder.typicode.com/posts')
+console.log(response);
+// console.log(axios.get('https://jsonplaceholder.typicode.com/posts'));
+// console.log(axios.get('https://jsonplaceholder.typicode.com/posts'));
 let buttonClickCount = 0;
 async function fetchdata() {
   let buttonClicked = true;
@@ -23,7 +29,7 @@ async function fetchdata() {
       fetchdata = false;
       stories.innerHTML = data?.hits
         ?.map((story) => {
-          const { objectID, title, num_comments, url, points, author } = story;
+          const { objectID, title, num_comments , points, author } = story;
           return `<article  class='story' id=${objectID}>
         <h4>${title}</h4>
         <p class='info'>
