@@ -13,7 +13,7 @@ form?.addEventListener('submit', (e) => {
     values.push(`${key}: ${value}`);
   }
   const message = values.join('\n');
-  showSuccess(message)
+  showSuccess({message})
   currentTarget.reset();
 });
 function showError(msg) {
