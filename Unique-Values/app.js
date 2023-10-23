@@ -10,21 +10,39 @@ console.log(typeof objectToArray)
 
 // remove duplicates using the custom function
 
-const removeDuplicates=()=>{
+const removeDuplicates = () => {
     console.log(arr);
-    let uniqueArr=[]
+    let uniqueArr = []
     for (let index = 0; index < arr.length; index++) {
         const element = arr[index];
-       if(!uniqueArr.includes(element)){
-        uniqueArr.push(element)
-       }
-        
+        if (!uniqueArr.includes(element)) {
+            uniqueArr.push(element)
+        }
+
     }
     return uniqueArr
 }
 
-let arr=[1, 2, 3, 2, 4, 1, 5]
+let arr = [1, 2, 3, 2, 4, 1, 5,123,1,2,3,4,4,4,4,6,6,]
 
 
 
 console.log(removeDuplicates(arr));
+
+
+// 3rd solution
+
+const removeduplication = (arr) => {
+    return arr.reduce((acc, curr) => {
+        if (!acc.includes(curr)) {
+            acc.push(curr)
+        }
+        return acc
+    }, [])
+}
+
+console.log(removeduplication(arr));
+
+
+
+
