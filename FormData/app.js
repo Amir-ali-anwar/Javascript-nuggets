@@ -27,7 +27,6 @@ form.addEventListener('submit', (e) => {
     error= "Please enter Password"
     console.log('Please enter Password')
   }
-  console.log(formObject)
   e.currentTarget.reset();
 })
 
