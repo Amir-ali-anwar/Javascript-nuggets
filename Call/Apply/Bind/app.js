@@ -8,6 +8,15 @@ function greet(name) {
 const person = { name: "Amir Ali Anwar" }
 greet.call(person, 'amir')
 
+function sayHello(role) {
+    console.log(`Hello, ${this.name}! and I am ${role}`);
+}
+const PetterObj = { name: "Peter" }
+const DocObj = { name: "Dr. Umair" }
+const intro = sayHello.call(PetterObj, 'Software Engineer')
+const DoctorInto= sayHello.call(DocObj,'Lawyer')
+
+
 // Apply Method
 
 function greets(name) {
