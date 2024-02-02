@@ -282,7 +282,13 @@ form h4 {
     display: grid;
     row-gap: 1rem
 }
-
+.No-data {
+    font-size: 17px;
+    font-weight: 500;
+    font-style: italic;
+    text-decoration: underline;
+    text-align: center;
+}
 .single-item {
     display: grid;
     grid-template-columns: auto 1fr auto;
