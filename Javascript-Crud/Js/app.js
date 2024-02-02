@@ -1,7 +1,8 @@
 
 const [form, dataTable, singleItem] = [document.querySelector('#myForm'), document.querySelector('#dataTable'), document.querySelector('.items')];
-const deleteItem = document.querySelector('.remove-btn')
+const deleteItem = [... document.querySelectorAll('.remove-btn')]
 console.log(deleteItem);
+
 const SetItemsInLocalStorage = (key, data) => {
     return localStorage.setItem(key, JSON.stringify(data))
 }
@@ -32,8 +33,6 @@ form.addEventListener('submit', (e) => {
 
 const updateTable = () => {
     const localStorageData = GetItemsFromLocalStorage('Crud');
-    console.log(localStorageData);
-
     return singleItem.innerHTML = localStorageData?.map((item) => {
         console.log(item);
         return `<div class="single-item" data-id=${item.id}>
