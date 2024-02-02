@@ -278,7 +278,7 @@ form h4 {
 }
 
 .items {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: grid;
     row-gap: 1rem
 }

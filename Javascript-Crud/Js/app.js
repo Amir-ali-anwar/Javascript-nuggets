@@ -1,6 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const [form, singleItem,] = [document.querySelector('#myForm'), document.querySelector('.items')];
+    
      singleItem.addEventListener('click',(event)=>{
         if(event.target.classList.contains('remove-btn')){
             const itemId = event.target.closest('.single-item').dataset.id;
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const GetItemsFromLocalStorage = (key) => {
         return JSON.parse(localStorage.getItem(key)) || [];
     };
+    
     const deleteItem=(itemId)=>{
         const storedItems= GetItemsFromLocalStorage('Crud')
         const filteredItems= storedItems.filter((storedItem)=>storedItem.id !== itemId)
@@ -42,9 +44,16 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reset();
         updateTable();
     });
-
+    const localStorageDataLength = GetItemsFromLocalStorage('Crud');
+    if(localStorageDataLength.length ===0){
+        const Nodata= document.createElement('p')
+        Nodata.textContent="No Items in the list";
+        singleItem.innerHTML=Nodata
+        // document.body.appendChild(Nodata);
+        }
     const updateTable = () => {
         const localStorageData = GetItemsFromLocalStorage('Crud');
+       
         return singleItem.innerHTML = localStorageData?.map((item) => {
             return `<div class="single-item" data-id=${item.id}>
                 <p>${item.name}</p>
