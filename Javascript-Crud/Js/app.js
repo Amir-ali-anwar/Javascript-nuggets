@@ -1,6 +1,5 @@
 const form = document.getElementById('myForm');
 const dataTable = document.getElementById('dataTable');
-const dataBody = document.getElementById('dataBody');
 const SetItemsInLocalStorage = (key, data) => {
     return localStorage.setItem(key, JSON.stringify(data))
 }
@@ -11,19 +10,25 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(e.target)
     const name = formData.get('name')
-    const Email = formData.get('email')
-    const userData = { name, Email }
+    const email = formData.get('email')
+    const userData = { name, email }
     let localStorageData = GetItemsFromLocalStorage('Crud')
     const localStorageUpdatedData = localStorageData.concat(userData);
     SetItemsInLocalStorage('Crud', localStorageUpdatedData);
-
+    updateTable();
+    form.reset()
 })
 const updateTable = () => {
     const localStorageData = GetItemsFromLocalStorage('Crud');
-    if (!localStorageData.length === 0) {
-        throw new Error("No items exist in localstorage")
-    }
-    console.log({ localStorageData });
-
+    console.log(localStorageData);
+    const singleItem = document.querySelector('.items'); 
+   return  singleItem.innerHTML = localStorageData?.map((item) => {
+        return `<div class="single-item">
+            <p>${item.email}</p>
+            <p>${item.name}</p>
+            <button class="btn remove-btn">delete</button>
+        </div>`;
+    }).join(" ");
 }
+
 updateTable();
