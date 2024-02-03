@@ -291,7 +291,7 @@ form h4 {
 }
 .single-item {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns:111px 160px;
     column-gap: 1rem;
     align-items: center
 }

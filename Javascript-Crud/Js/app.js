@@ -1,13 +1,33 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    const [form, singleItem,] = [document.querySelector('#myForm'), document.querySelector('.items')];
-
+    const [form, singleItem, Nodata] = [document.querySelector('#myForm'), document.querySelector('.items'), document.querySelector('.No-data')];
     singleItem.addEventListener('click', (event) => {
         if (event.target.classList.contains('remove-btn')) {
             const itemId = event.target.closest('.single-item').dataset.id;
             deleteItem(itemId)
         }
+        if (event.target.classList.contains('update-btn')) {
+            const itemId = event.target.closest('.single-item').dataset.id;
+            UpdateItem(itemId, form)
+        }
     })
+    const updateTable = () => {
+        const localStorageData = GetItemsFromLocalStorage('Crud');
+        if (localStorageData.length > 0) {
+            Nodata.setAttribute('style', 'display:none')
+        } else {
+            Nodata.setAttribute('style', 'display:block')
+            Nodata.textContent = "No Items in the list"
+        }
+        return singleItem.innerHTML = localStorageData?.map((item) => {
+            return `<div class="single-item" data-id=${item.id}>
+                <p>${item.name}</p>
+                <p>${item.email}</p>
+                <button class="btn remove-btn">delete</button>
+                <button class="btn update-btn">Update</button>
+            </div>`;
+        }).join(" ");
+    };
     const SetItemsInLocalStorage = (key, data) => {
         return localStorage.setItem(key, JSON.stringify(data));
     };
@@ -21,6 +41,27 @@ document.addEventListener('DOMContentLoaded', () => {
         SetItemsInLocalStorage('Crud', filteredItems);
         updateTable()
         return
+    }
+    const UpdateItem = (itemId, formElement) => {
+        const btn = document.querySelector('.btn')
+        btn.textContent = "Update Item"
+        const storedItems = GetItemsFromLocalStorage('Crud')
+        const isItemInLocalStorage = storedItems.find((storedItem) => storedItem.id === itemId)
+        if (!isItemInLocalStorage) {
+            throw new Error('Your item not Found in LocalStorage')
+        }
+        const { name, email } = isItemInLocalStorage
+        formElement.querySelector('#name').value = name;
+        formElement.querySelector('#email').value = email;
+        btn.addEventListener('click', (e) => {
+            const formData = new FormData(e.target.parentElement);
+            const updatedName = formData.get('name');
+            const updatedEmail = formData.get('email');
+
+            // Correct the typo in updating values
+            isItemInLocalStorage.name = updatedName;
+            isItemInLocalStorage.email = updatedEmail;
+        })
     }
     const generateUniqueId = () => {
         const randomBytes = new Uint8Array(5);
@@ -44,25 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reset();
         updateTable();
     });
-    const localStorageDataLength = GetItemsFromLocalStorage('Crud');
-    if (localStorageDataLength.length === 0) {
-        const Nodata = document.createElement('p')
-        Nodata.setAttribute('class', 'No-data');
-        const headingText = document.createTextNode("No Items in the list");
-        Nodata.appendChild(headingText)
-        document.querySelector('.section-center').appendChild(Nodata);
-    }
-    const updateTable = () => {
-        const localStorageData = GetItemsFromLocalStorage('Crud');
-
-        return singleItem.innerHTML = localStorageData?.map((item) => {
-            return `<div class="single-item" data-id=${item.id}>
-                <p>${item.name}</p>
-                <p>${item.email}</p>
-                <button class="btn remove-btn">delete</button>
-            </div>`;
-        }).join(" ");
-    };
 
     updateTable();
 });
