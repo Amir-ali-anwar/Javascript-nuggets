@@ -53,7 +53,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const { name, email } = isItemInLocalStorage
         formElement.querySelector('#name').value = name;
         formElement.querySelector('#email').value = email;
+        btn.addEventListener('click', (e) => {
+            const formData = new FormData(e.target.parentElement);
+            const updatedName = formData.get('name');
+            const updatedEmail = formData.get('email');
 
+            // Correct the typo in updating values
+            isItemInLocalStorage.name = updatedName;
+            isItemInLocalStorage.email = updatedEmail;
+        })
     }
     const generateUniqueId = () => {
         const randomBytes = new Uint8Array(5);
