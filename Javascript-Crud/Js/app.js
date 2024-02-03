@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    const [form, singleItem,] = [document.querySelector('#myForm'), document.querySelector('.items')];
+    const [form, singleItem,Nodata] = [document.querySelector('#myForm'), document.querySelector('.items'),document.querySelector('.No-data')];
 
     singleItem.addEventListener('click', (event) => {
         if (event.target.classList.contains('remove-btn')) {
@@ -8,6 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteItem(itemId)
         }
     })
+    const updateTable = () => {
+        const localStorageData = GetItemsFromLocalStorage('Crud');
+        if(localStorageData.length>0){
+            Nodata.setAttribute('style','display:none')
+        }else{
+            Nodata.setAttribute('style','display:block')
+            Nodata.textContent="No Items in the list"
+        }
+        return singleItem.innerHTML = localStorageData?.map((item) => {
+            return `<div class="single-item" data-id=${item.id}>
+                <p>${item.name}</p>
+                <p>${item.email}</p>
+                <button class="btn remove-btn">delete</button>
+            </div>`;
+        }).join(" ");
+    };
     const SetItemsInLocalStorage = (key, data) => {
         return localStorage.setItem(key, JSON.stringify(data));
     };
@@ -45,26 +61,16 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTable();
     });
     const localStorageDataLength = GetItemsFromLocalStorage('Crud');
-    if (localStorageDataLength.length === 0) {
-        const Nodata = document.createElement('p')
-        Nodata.setAttribute('class', 'No-data');
-        const headingText = document.createTextNode("No Items in the list");
-        Nodata.appendChild(headingText)
-        document.querySelector('.section-center').appendChild(Nodata);
-    }
-    const updateTable = () => {
-        const localStorageData = GetItemsFromLocalStorage('Crud');
-
-        return singleItem.innerHTML = localStorageData?.map((item) => {
-            return `<div class="single-item" data-id=${item.id}>
-                <p>${item.name}</p>
-                <p>${item.email}</p>
-                <button class="btn remove-btn">delete</button>
-            </div>`;
-        }).join(" ");
-    };
-
-    updateTable();
+//    if (localStorageDataLength.length === 0) {
+//        Nodata.setAttribute('style','display:block')
+//       Nodata.textContent="No Items in the list"
+//         // const Nodata = document.createElement('p')
+//         // Nodata.setAttribute('class', 'No-data');
+//         // const headingText = document.createTextNode("No Items in the list");
+//         // Nodata.appendChild(headingText)
+//         // document.querySelector('.section-center').appendChild(Nodata);
+//     }
+   updateTable();
 });
 
 
