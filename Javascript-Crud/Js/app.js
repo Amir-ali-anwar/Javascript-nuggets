@@ -1,6 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const [form, singleItem, Nodata] = [document.querySelector('#myForm'), document.querySelector('.items'), document.querySelector('.No-data')];
+    const btn = document.querySelector('.btn')
     singleItem.addEventListener('click', (event) => {
         if (event.target.classList.contains('remove-btn')) {
             const itemId = event.target.closest('.single-item').dataset.id;
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return
     }
     const UpdateItem = (itemId, formElement) => {
-        const btn = document.querySelector('.btn')
+   
         btn.textContent = "Update Item"
         const storedItems = GetItemsFromLocalStorage('Crud')
         const isItemInLocalStorage = storedItems.find((storedItem) => storedItem.id === itemId)
@@ -57,10 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(e.target.parentElement);
             const updatedName = formData.get('name');
             const updatedEmail = formData.get('email');
-
-            // Correct the typo in updating values
             isItemInLocalStorage.name = updatedName;
             isItemInLocalStorage.email = updatedEmail;
+            // SetItemsInLocalStorage('Crud', isItemInLocalStorage)
+            // updateTable();
         })
     }
     const generateUniqueId = () => {
@@ -74,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+        btn.textContent="Submit"
         const formData = new FormData(e.target);
         const name = formData.get('name');
         const email = formData.get('email');
