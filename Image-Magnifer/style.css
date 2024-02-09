@@ -147,3 +147,11 @@
     background-color: var(--c-action-primary);
     border-color: var(--c-action-primary);
   }
+  .magnifer-main {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 0 50px;
+    justify-content: space-between;
+}

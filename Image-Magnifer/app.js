@@ -7,13 +7,6 @@ console.log(imagePreview.firstChild);
 const Noimg=document.querySelector('#image-preview p')
 formSubmit.addEventListener('submit',(event)=>{
     console.log("click");
-    event.preventDefault();
-    const previousImage = imagePreview.querySelector('img');
-    if (previousImage) {
-        imagePreview.removeChild(previousImage);
-        Noimg.classList.remove('no-img');
-    }
-
     if (fileInput.files.length > 0) {
         const file = fileInput.files[0]; // Get the first file
         let fileReader= new FileReader()
