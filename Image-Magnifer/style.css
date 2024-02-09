@@ -155,3 +155,19 @@
     gap: 0 50px;
     justify-content: space-between;
 }
+
+#image-container {
+  position: relative;
+  width: fit-content; /* Adjust according to your layout */
+}
+
+#magnifier {
+  position: absolute;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 200px; /* Adjust the size of the magnifier */
+  height: 200px; /* Adjust the size of the magnifier */
+  display: none;
+  pointer-events: none; /* Ensure the magnifier doesn't interfere with mouse events */
+  /* Additional styling for magnifier */
+}
