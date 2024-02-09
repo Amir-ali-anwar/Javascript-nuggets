@@ -50,8 +50,21 @@ function handleMouseEnter(event) {
     }
 }
 
+
 if (imagePreview) {
-    imagePreview.addEventListener('mouseenter', showMagnifier);
+    imagePreview.addEventListener('mouseenter', (event) => {
+        const isImgElement = imagePreview.querySelector('img');
+        if (isImgElement !== null) {
+            showMagnifier(event);
+        }
+    });
+
     imagePreview.addEventListener('mouseleave', hideMagnifier);
-    imagePreview.addEventListener('mousemove', handleMouseEnter);
+
+    imagePreview.addEventListener('mousemove', (event) => {
+        const isImgElement = imagePreview.querySelector('img');
+        if (isImgElement !== null) {
+            handleMouseEnter(event);
+        }
+    });
 }
