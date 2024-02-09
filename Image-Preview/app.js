@@ -2,17 +2,22 @@ const formSubmit= document.querySelector('.submit--form')
 console.log(formSubmit);
 const image= document.querySelector('#fileInput')
 const imagePreview=document.querySelector('#image-preview')
-while (imagePreview.firstChild) {
-    imagePreview.removeChild(imagePreview.firstChild);
-}
+
 console.log(imagePreview.firstChild);
 const Noimg=document.querySelector('#image-preview p')
 formSubmit.addEventListener('submit',(event)=>{
     console.log("click");
     event.preventDefault();
+    const previousImage = imagePreview.querySelector('img');
+    if (previousImage) {
+        imagePreview.removeChild(previousImage);
+        Noimg.classList.remove('no-img');
+    }
+
     if (fileInput.files.length > 0) {
         const file = fileInput.files[0]; // Get the first file
         let fileReader= new FileReader()
+        console.log({fileReader});
         const imgElement = new Image();
         fileReader.onload=(e)=>{
             const imageSrc = e.target.result;
