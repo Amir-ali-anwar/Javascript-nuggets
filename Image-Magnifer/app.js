@@ -30,6 +30,11 @@ formSubmit.addEventListener('submit', (event) => {
             }
             imagePreview.appendChild(imgElement);
             Noimg.classList.add('no-img');
+            
+            // Attach event listeners to the newly added imgElement
+            imgElement.addEventListener('mouseenter', showMagnifier);
+            imgElement.addEventListener('mouseleave', hideMagnifier);
+            imgElement.addEventListener('mousemove', handleMouseEnter);
         };
         fileReader.readAsDataURL(file);
     }
@@ -37,34 +42,16 @@ formSubmit.addEventListener('submit', (event) => {
 });
 
 function handleMouseEnter(event) {
-    const imgElement = event.target.children.item(0);
-    if (imgElement && imgElement.tagName === 'IMG') {
-        const rect = imgElement.getBoundingClientRect();
-        const clientX = event.clientX - rect.left;
-        const clientY = event.clientY - rect.top;
-        magnifier.style.left = event.pageX + 'px';
-        magnifier.style.top = event.pageY + 'px';
-        const backgroundPositionX = -clientX + 'px';
-        const backgroundPositionY = -clientY + 'px';
-        magnifier.style.backgroundPosition = `${backgroundPositionX} ${backgroundPositionY}`;
-    }
-}
-
-
-if (imagePreview) {
-    imagePreview.addEventListener('mouseenter', (event) => {
-        const isImgElement = imagePreview.querySelector('img');
-        if (isImgElement !== null) {
-            showMagnifier(event);
-        }
-    });
-
-    imagePreview.addEventListener('mouseleave', hideMagnifier);
-
-    imagePreview.addEventListener('mousemove', (event) => {
-        const isImgElement = imagePreview.querySelector('img');
-        if (isImgElement !== null) {
-            handleMouseEnter(event);
-        }
-    });
+    const imgElement = event.target;
+    const rect = imgElement.getBoundingClientRect();
+    const imgRect = imgElement.getBoundingClientRect();
+    const imgX = imgRect.left + window.scrollX; // X position of the image
+    const imgY = imgRect.top + window.scrollY; 
+    const clientX = event.clientX - rect.left;
+    const clientY = event.clientY - rect.top;
+    magnifier.style.left = event.pageX + 'px';
+    magnifier.style.top = event.pageY + 'px';
+    const backgroundPositionX = -clientX + 'px';
+    const backgroundPositionY = -clientY + 'px';
+    magnifier.style.backgroundPosition = `${backgroundPositionX} ${backgroundPositionY}`;
 }
