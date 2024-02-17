@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title> File upload</title>
+    <title>File upload</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -24,6 +24,9 @@
 
 <body>
     <!-- partial:index.partial.html -->
+    <div class="magnifer-main">
+
+
     <div class="modal">
         <div class="modal-header">
             <div class="modal-logo">
@@ -54,7 +57,7 @@
         </div>
         <div class="modal-body">
             <form class="submit--form">
-               <h2 class="modal-title">Upload a file</h2>
+                <h2 class="modal-title">Upload a file</h2>
                 <p class="modal-description">Attach the file below</p>
                 <label class="upload-area">
                     <input type="file" id="fileInput" accept="image/*">
@@ -73,18 +76,28 @@
                         Alternatively, you can select a file by <br /><strong>clicking here</strong>
                     </span>
                 </label>
-                <div class="upload-area" id="image-preview">
-                    <p>No Image Picked yet.</p>
-                </div>
+
         </div>
         <div class="modal-footer">
 
-            <button class="btn-primary" >Upload File</button>
+            <button class="btn-primary" type="submit">Upload File</button>
         </div>
         </form>
+
         <!-- <div class="modal-footer">
             <button class="btn-secondary">Cancel</button>
         </div> -->
+    </div>
+    <div class="modal">
+        <div class="modal-body">
+             <div class="upload-area" id="image-preview" style="padding: 3rem 0.4rem;">
+                <p>No Image Picked yet.</p>
+            </div>
+            <div id="magnifier"></div>
+
+        </div>
+    </div>
+</div>
     </div>
     <!-- partial -->
     <script src="app.js"></script>
