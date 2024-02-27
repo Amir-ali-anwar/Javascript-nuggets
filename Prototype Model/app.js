@@ -33,3 +33,7 @@ console.log(person1);
 console.log(person1.__proto__);
 console.log(person1.__proto__.__proto__);
 console.log(person1.__proto__.__proto__);
+
+ Array.prototype.pop = function () {
+      return "POP IT UP BABE";
+ };
