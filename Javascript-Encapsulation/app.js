@@ -34,4 +34,6 @@ class CounterClass{
 const counter= new CounterClass()
 counter.increment()
 console.log(counter.getCount());
-console.log(counter.#count);
+// console.log(counter.#count);
+
+// 3rd method 
