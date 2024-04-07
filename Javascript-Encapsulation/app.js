@@ -18,3 +18,22 @@ const count = new Counter()
 count.increment()
 console.log(count.getCount());
 console.log(count.count);
+
+// 2nd method Using Using ES6 Classes:
+
+class CounterClass{
+    #count=0;
+    increment(){
+        this.#count++
+    }
+    getCount(){
+        return this.#count
+    }
+}
+
+const counter= new CounterClass()
+counter.increment()
+console.log(counter.getCount());
+// console.log(counter.#count);
+
+// 3rd method 
