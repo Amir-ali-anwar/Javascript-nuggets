@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif; /* Clean, modern font */
+    background-color: #f5f5f5; /* Light background for better readability */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container for overall layout */
+  section#container {
+    display: flex; /* Allow horizontal layout for button and output */
+    flex-direction: column; /* Stack button on top, output below */
+    align-items: center; /* Center elements horizontally */
+    width: 800px; /* Set a maximum width for responsiveness */
+    margin: 0 auto; /* Center the container horizontally on the page */
+    padding: 40px; /* Add some padding for visual spacing */
+    border-radius: 5px; /* Subtle rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  }
+  
+  #fetchButton {
+    padding: 12px 24px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Green for primary action */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  #fetchButton:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  /* Output container for fetched data */
+  .output-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  
+  .output-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 15px; /* Spacing between items */
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: calc(33.33% - 30px); /* Calculate width for three equal blocks with margin */
+    /* Adjust margin value if needed to fine-tune spacing */
+    text-align: center; /* Center content within each item */
+    flex: 0 0 42%;
+
+  }
+  
+  .output-item:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .output-item h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .output-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+  }
+  

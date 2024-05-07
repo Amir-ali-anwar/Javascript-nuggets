@@ -301,7 +301,7 @@ form h4 {
 }
 
 .remove-btn {
-    padding: .15rem .25rem;
+    padding: .375rem .75rem;
     font-size: .75rem;
     background: var(--black)
 }
