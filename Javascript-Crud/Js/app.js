@@ -44,26 +44,38 @@ document.addEventListener('DOMContentLoaded', () => {
         return
     }
     const UpdateItem = (itemId, formElement) => {
-   
-        btn.textContent = "Update Item"
-        const storedItems = GetItemsFromLocalStorage('Crud')
-        const isItemInLocalStorage = storedItems.find((storedItem) => storedItem.id === itemId)
-        if (!isItemInLocalStorage) {
-            throw new Error('Your item not Found in LocalStorage')
+        const btn = formElement.querySelector('button'); // Assuming btn is defined somewhere in your code
+    
+        btn.textContent = "Update Item";
+        const storedItems = GetItemsFromLocalStorage('Crud');
+        const index = storedItems.findIndex((storedItem) => storedItem.id === itemId);
+    
+        if (index === -1) {
+            throw new Error('Your item not Found in LocalStorage');
         }
-        const { name, email } = isItemInLocalStorage
+    
+        const { name, email } = storedItems[index];
         formElement.querySelector('#name').value = name;
         formElement.querySelector('#email').value = email;
+    
         btn.addEventListener('click', (e) => {
-            const formData = new FormData(e.target.parentElement);
+            e.preventDefault(); // Prevent form submission
+            const formData = new FormData(formElement);
             const updatedName = formData.get('name');
             const updatedEmail = formData.get('email');
-            isItemInLocalStorage.name = updatedName;
-            isItemInLocalStorage.email = updatedEmail;
-            // SetItemsInLocalStorage('Crud', isItemInLocalStorage)
-            // updateTable();
-        })
-    }
+    
+            // Update the item in the array
+            storedItems[index].name = updatedName;
+            storedItems[index].email = updatedEmail;
+    
+            // Save the updated items back to localStorage
+            SetItemsInLocalStorage('Crud', storedItems);
+            
+            // Perform any additional operations here, like updating the UI
+            updateTable();
+        });
+    };
+    
     const generateUniqueId = () => {
         const randomBytes = new Uint8Array(5);
         window.crypto.getRandomValues(randomBytes);
