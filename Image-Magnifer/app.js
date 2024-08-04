@@ -16,6 +16,13 @@ formSubmit.addEventListener('submit', (event) => {
     event.preventDefault();
     if (image.files.length > 0) {
         const file = image.files[0]; // Get the first file
+        const maxFileSizeInKB = 1024;
+
+        // Check if the file size exceeds the limit
+        if (file.size > maxFileSizeInKB * 1024) {
+            alert("File size exceeds " + maxFileSizeInKB + "KB. Please choose a smaller file.");
+            return;
+        }
         let fileReader = new FileReader();
         const imgElement = new Image();
         fileReader.onload = (e) => {
@@ -40,18 +47,20 @@ formSubmit.addEventListener('submit', (event) => {
     }
     formSubmit.reset();
 });
-
 function handleMouseEnter(event) {
     const imgElement = event.target;
     const rect = imgElement.getBoundingClientRect();
-    const imgRect = imgElement.getBoundingClientRect();
-    const imgX = imgRect.left + window.scrollX; // X position of the image
-    const imgY = imgRect.top + window.scrollY; 
     const clientX = event.clientX - rect.left;
     const clientY = event.clientY - rect.top;
+
+    // Calculate background position for magnifier
+    const bgPosX = -clientX * 2 + magnifier.offsetWidth / 2;
+    const bgPosY = -clientY * 2 + magnifier.offsetHeight / 2;
+
+    // Position and update magnifier
     magnifier.style.left = event.pageX + 'px';
     magnifier.style.top = event.pageY + 'px';
-    const backgroundPositionX = -clientX + 'px';
-    const backgroundPositionY = -clientY + 'px';
-    magnifier.style.backgroundPosition = `${backgroundPositionX} ${backgroundPositionY}`;
+    magnifier.style.backgroundPosition = `${bgPosX}px ${bgPosY}px`;
+    magnifier.style.backgroundImage = `url('${imgElement.src}')`;
 }
+

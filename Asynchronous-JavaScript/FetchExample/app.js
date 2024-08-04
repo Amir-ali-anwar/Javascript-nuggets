@@ -4,10 +4,7 @@ const stories = document.querySelector(".stories");
 const nodata = document.querySelector(".loading");
 const noData= document.querySelector('.no-data')
 // import axios from 'axios'
-const response=  await axios.get('https://jsonplaceholder.typicode.com/posts')
-console.log(response);
-// console.log(axios.get('https://jsonplaceholder.typicode.com/posts'));
-// console.log(axios.get('https://jsonplaceholder.typicode.com/posts'));
+
 let buttonClickCount = 0;
 async function fetchdata() {
   let buttonClicked = true;
