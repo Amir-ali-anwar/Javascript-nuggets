@@ -155,7 +155,7 @@ Pagination
   background: var(--clr-white);
   border-radius: var(--radius);
   box-shadow: var(--light-shadow);
-  padding: 2rem 3.5rem;
+  padding: 2rem 1.5rem;
   text-align: center;
 }
 .card img {
@@ -219,6 +219,6 @@ Pagination
 @media screen and (min-width: 775px) {
   .btn-container {
     margin: 0 auto;
-    max-width: 700px;
+    max-width: 900px;
   }
 }
