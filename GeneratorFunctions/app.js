@@ -3,7 +3,6 @@
 // The yield keyword is used to pause the function and return a value.
 // When the generator's next() method is called, it resumes execution until it either hits another yield statement or completes.
 
-
 function* generatorFuntion() {
   yield "First output";
   yield "Second Output";
@@ -16,3 +15,16 @@ console.log(gen.next());
 console.log(gen.next());
 console.log(gen.next());
 
+// Second Example
+
+function* RangeGenerator(start, end) {
+    for (let i = start; i <= end; i++) {
+      yield i;
+    }
+  }
+  
+  const range = RangeGenerator(1, 10);
+  for (const rangeNumber of range) {
+    console.log({ rangeNumber });
+  }
+  
