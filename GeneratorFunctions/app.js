@@ -28,3 +28,23 @@ function* RangeGenerator(start, end) {
     console.log({ rangeNumber });
   }
   
+
+ // . Delegating Generators:
+
+//  A generator can delegate to another generator using yield*.
+
+function* innerGenerator(){
+  yield 'Hello',
+  yield 'from'
+}
+
+function* outerGenerator(){
+  yield* innerGenerator()
+  yield 'the outside!';
+}
+
+const gen1 = outerGenerator();
+console.log(gen1.next());
+console.log(gen1.next());
+console.log(gen1.next());
+
