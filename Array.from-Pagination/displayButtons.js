@@ -11,8 +11,8 @@ const displayButtons = (container,pages,index) => {
    buttons.unshift('<button class="prev-btn">prev</button>');
    container.innerHTML=buttons.join('')
 }
-const pageBtns = container.querySelectorAll('.page-btn');
-pageBtns.array.forEach(element => {
+// const pageBtns = container.querySelectorAll('.page-btn');
+// pageBtns.array.forEach(element => {
   
-});
+// });
 export default displayButtons
