@@ -17,3 +17,28 @@ const addMultipley= compose(multiply,add)
 
 console.log(addMultipley(6));
 
+
+// Object Composition:
+
+// This involves combining properties and methods from multiple objects to create a new object.
+
+const person = {
+  name: "Amir Ali Anwar",
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  },
+};
+const employee = {
+  jobTitle: "Frontend Developer",
+  work() {
+    console.log(`${this.name} is working as a ${this.jobTitle}`);
+  },
+};
+
+const createEmployees = (name) => {
+  return Object.assign({}, person, employee, { name });
+};
+
+const newEmployee = createEmployees('Bob');
+newEmployee.greet();
+newEmployee.work();
