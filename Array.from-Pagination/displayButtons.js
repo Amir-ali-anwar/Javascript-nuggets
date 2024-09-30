@@ -1,6 +1,6 @@
 const displayButtons = (container,pages,index) => {
   let buttons= pages?.map((_,pageIndex)=>{
-    return `<button data-value=${index} class="page-btn ${
+    return `<button  class="page-btn ${
       pageIndex === Number(index) ? "active-btn" : ''
     }" data-index=${pageIndex}>${pageIndex + 1}</button>`;
   })
