@@ -4,11 +4,11 @@ const imagePreview = document.querySelector('#image-preview');
 const Noimg = document.querySelector('#image-preview p');
 const magnifier = document.getElementById('magnifier');
 
-function showMagnifier(event) {
+function showMagnifier() {
     magnifier.style.display = 'block';
 }
 
-function hideMagnifier(event) {
+function hideMagnifier() {
     magnifier.style.display = 'none';
 }
 
