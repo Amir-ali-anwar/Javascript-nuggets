@@ -59,3 +59,13 @@ const obj = Object.fromEntries(map);
 console.log({obj});
 
 //3.Filtering and Modifying Entries Before Converting Back
+
+const person = {
+  name: 'John',
+  age: 25,
+  role: 'Developer'
+};
+
+const filtered= Object.entries(person).filter(([key,value])=>key !=='role')
+const result = Object.fromEntries(filtered)
+console.log({result});
