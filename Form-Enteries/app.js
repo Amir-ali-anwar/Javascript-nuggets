@@ -31,3 +31,31 @@ function showSuccess(msg) {
     text: msg,
   })
 }
+
+
+// Object.fromEntries() 
+
+//The fromEntries() method creates an object from iterable key / value pairs.
+
+//1.Converting an Array of Key-Value Pairs to an Object
+const fruits = [
+  ["apples", 300],
+  ["pears", 900],
+  ["bananas", 500]
+  ];
+
+  
+const myObj= Object.fromEntries(fruits)
+console.log({myObj});
+
+//2.Converting a Map to an Object
+
+const map = new Map([
+  ['name', 'Alice'],
+  ['age', 30],
+  ['city', 'New York']
+]);
+const obj = Object.fromEntries(map);
+console.log({obj});
+
+//3.Filtering and Modifying Entries Before Converting Back
