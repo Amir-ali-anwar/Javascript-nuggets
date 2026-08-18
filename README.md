@@ -18,13 +18,13 @@ This repository contains hands-on examples, patterns, and short implementations 
 | `Accordion` | Interactive UI component built using vanilla JS |
 | `Array.from-Pagination` | Creating paginated UIs using `Array.from()` |
 | `Asynchronous-JavaScript` | Covers async patterns: callbacks, promises, async/await |
-| `Call/Apply/Bind` | Understand function context and how to control `this` |
+| `Call-Apply-Bind` | Understand function context and how to control `this` |
 | `Css-variables` | Use of CSS variables with JavaScript |
 | `Currying` | Function currying explained with examples |
 | `Custom-video-Player` | Build a basic video player from scratch |
 | `Dynamic-Values` | Injecting and handling dynamic values |
 | `Event-bubbling` | Understanding how event propagation works |
-| `Every`, `Filter`, `Find`, `Includes`, `Map`, `Some`, `Reduce` | Essential array methods with practical examples |
+| `Every`, `Filter`, `Find`, `Includes`, `Map`, `Some`, `reduce` | Essential array methods with practical examples |
 | `Form-Enteries` & `FormData` | Handling form data dynamically |
 | `ForOf/ForIn` | Iteration techniques in JavaScript |
 | `Functions` | Deep dive into JS functions and declarations |
@@ -33,6 +33,7 @@ This repository contains hands-on examples, patterns, and short implementations 
 | `Image-Magnifer` & `Image-Preview` | Image handling with zoom and preview logic |
 | `Javascript-Crud` | Basic CRUD implementation using JavaScript |
 | `Javascript-Encapsulation` | OOP principles: Encapsulation in JS |
+| `memoization` | Caching function results to avoid redundant computation |
 | `Nullish-Coalescing` | Understanding `??` operator with examples |
 | `Object-destructuring` | Extracting values from objects efficiently |
 | `Prototype Model` | Dive into JavaScript's prototypal inheritance |
